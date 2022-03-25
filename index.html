@@ -62,15 +62,16 @@ Query parameters:
 			alert("MolView uses HTML Canvas for rendering, but it is not supported by your browser.")
 		}
 		window.addEventListener('message', function(e) {
-			if(e.retrieve = 'name') 
-				var element = document.getElementById('prop-sysname');
-			else if(e.retrieve = 'csmiles')
-				var element = document.getElementById('prop-canonicalsmiles');
-			else if(e.retrieve = 'ismiles')
-				var element = document.getElementById('prop-isomericsmiles');
-			
-			var message = element.value
-			// need to post message to parent
+			var name = document.getElementById('prop-sysname').value;
+			var csmiles = document.getElementById('prop-canonicalsmiles').value;
+			var ismilies = document.getElementById('prop-isomericsmiles').value;
+
+			// need to fix target origin
+			window.parent.postMessage({
+				name: name,
+				csmiles: csmiles,
+				ismiles: ismiles
+			}, '*');
 		});
 	</script>
 </head>
