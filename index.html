@@ -78,7 +78,7 @@ Query parameters:
 	<div id="progress">
 		<canvas id="progress-canvas"></canvas>
 	</div>
-	<div id="menu">
+	<div id="menu" ><!-- menu bar starts hidden style="display: none;" -->
 		<div id="menu-bar" class="hstack">
 			<div id="brand"></div>
 			<form id="search" class="hstack" action="index.php">
@@ -206,7 +206,7 @@ Query parameters:
 		</div>
 	</div>
 	<div id="content">
-		<div id="main-layer" class="layer layout-vsplit">
+		<div id="main-layer" class="layer layout-sketcher">
 			<!-- Dynamic onload layout -->
 			<script type="text/javascript">
 				MolView.query = getQuery();
@@ -258,11 +258,11 @@ Query parameters:
 							<div id="action-mp-lasso" class="tool-button tool-button-horizontal primary-tool" title="Lasso selection"></div>
 							<div class="horizontal-separator"></div>
 							<div id="action-mp-color-mode" class="tool-button tool-button-horizontal enabled" title="Toggle color mode"></div>
-							<div id="action-mp-skeletal-formula" class="tool-button tool-button-horizontal enabled" title="Toggle skeletal formula"></div>
+							<div id="action-mp-skeletal-formula" class="tool-button tool-button-horizontal enabled tool-button-selected" title="Toggle skeletal formula"></div>
 							<div id="action-mp-center" class="tool-button tool-button-horizontal" title="Center structure"></div>
 							<div class="horizontal-separator"></div>
 							<div id="action-mp-clean" class="tool-button tool-button-horizontal" title="Clean structure"></div>
-							<div id="action-resolve" class="tool-button tool-button-horizontal" title="Update 3D view">2D to 3D</div>
+							<div id="action-resolve" class="tool-button tool-button-horizontal" title="Update 3D view"  style="display: none;">2D to 3D</div><!-- 3D view hidden -->
 						</div>
 					</div>
 					<div id="elem-tools" class="toolbar">
@@ -394,10 +394,10 @@ Query parameters:
 	<div id="autocomplete-dropdown-wrapper" style="display: none;">
 		<div id="autocomplete-dropdown"></div>
 	</div>
-	<div id="dialog-overlay" class="dialog-overlay">
+	<div id="dialog-overlay" class="dialog-overlay" style="display: none;">
 		<div id="dialog-click-area">
 			<div id="dialog-wrapper">
-				<div class="dialog" id="start-dialog">
+				<div class="dialog" id="start-dialog" style="display: none;">
 					<img id="welcome-logo" src="img/logo.svg" alt="" />
 					<img id="welcome-mark" src="img/mark.svg" alt="MolView" />
 					<p style="text-align: left; margin: 2em; font-size: 1.5em;">
