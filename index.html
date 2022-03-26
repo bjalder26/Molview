@@ -62,10 +62,18 @@ Query parameters:
 			alert("MolView uses HTML Canvas for rendering, but it is not supported by your browser.")
 		}
 		window.addEventListener('message', function(e) {
-			document.getElementById('action-data-infocard').click();
-			var name = document.getElementById('prop-sysname').value;
-			var csmiles = document.getElementById('prop-canonicalsmiles').value;
-			var ismiles = document.getElementById('prop-isomericsmiles').value;
+			document.getElementById('action-data-infocard').click()
+				.then(result => {
+				var name = document.getElementById('prop-sysname').value;
+				var csmiles = document.getElementById('prop-canonicalsmiles').value;
+				var ismiles = document.getElementById('prop-isomericsmiles').value;
+				})
+				.catch(function(){
+				var name = '';
+				var csmiles = '';
+				var ismiles = '';			
+			});
+		};
 			alert(name);
 
 			// need to fix target origin
