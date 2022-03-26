@@ -80,14 +80,14 @@ Query parameters:
 					var name = document.getElementById('prop-sysname').value;
 			    var csmiles = document.getElementById('prop-canonicalsmiles').value;
 				  var ismiles = document.getElementById('prop-isomericsmiles').value;
-				});
-				
-				// need to fix target origin
-				window.parent.postMessage({
-				  name: name,
-				  csmiles: csmiles,
-				  ismiles: ismiles
-				}, '*');
+					
+					// need to fix target origin
+				  window.parent.postMessage({
+				    name: name,
+				    csmiles: csmiles,
+				    ismiles: ismiles
+				  }, '*');
+				});				
 			}
 		});
 	</script>
