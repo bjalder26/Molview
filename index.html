@@ -61,20 +61,33 @@ Query parameters:
 		if(!Detector.canvas) {
 			alert("MolView uses HTML Canvas for rendering, but it is not supported by your browser.")
 		}
+		
+		const getData = async() => {
+			var e;
+			try {
+				e = Sketcher.getSMILES();
+			} catch (e) {
+				return;
+			}
+			InfoCard.update(e), InfoCard.load(), MolView.setLayer("infocard");
+			return;
+		}
+		
 		window.addEventListener('message', function(e) {
 			if(e.data.action=='getinfo'){
-				document.getElementById('action-data-infocard').click();
-				setTimeout(function(){
+				//document.getElementById('action-data-infocard').click();
+				getData().then(function(){
 					var name = document.getElementById('prop-sysname').value;
-					var csmiles = document.getElementById('prop-canonicalsmiles').value;
-					var ismiles = document.getElementById('prop-isomericsmiles').value;
-					// need to fix target origin
-					window.parent.postMessage({
-						name: name,
-				    csmiles: csmiles,
-				    ismiles: ismiles
-					}, '*');
-				}, 4000);
+			    var csmiles = document.getElementById('prop-canonicalsmiles').value;
+				  var ismiles = document.getElementById('prop-isomericsmiles').value;
+				});
+				
+				// need to fix target origin
+				window.parent.postMessage({
+				  name: name,
+				  csmiles: csmiles,
+				  ismiles: ismiles
+				}, '*');
 			}
 		});
 	</script>
